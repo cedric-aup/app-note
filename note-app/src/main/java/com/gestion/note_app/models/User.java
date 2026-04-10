@@ -1,8 +1,12 @@
 package com.gestion.note_app.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
+@Setter
+@Getter
 @Entity
 @Table(name = "app_user")
 public class User {
@@ -20,27 +24,4 @@ public class User {
 
     public User() {}
 
-    public String getMdp() {
-        return mdp;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
 }

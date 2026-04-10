@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Note} from '../../notes/Note';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,10 @@ export class Api {
 
   login(user: any){
     return this.http.post(`${this.baseUrl}/auth/login`, user)
+  }
+
+  getNoteByUser(userId: number) {
+    return this.http.get<Note[]>(`${this.baseUrl}/note/listNoteByUser/${userId}`);
   }
 
 }

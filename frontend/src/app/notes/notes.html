@@ -1,0 +1,17 @@
+<div class="layout">
+
+  <div class="sidebar">
+    <button>Ajouter</button>
+    <button>Voir notes</button>
+  </div>
+
+  <div class="content">
+
+    <div *ngFor="let note of (notes$ | async)" class="note-card">
+      <h2>{{ note.title }}</h2>
+      <p>{{ note.content }}</p>
+    </div>
+
+  </div>
+
+</div>

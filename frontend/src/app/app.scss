@@ -1,0 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+router-outlet + * {
+  display: block;
+  width: 100%;
+}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,5 +51,9 @@ public class NoteService {
         note1.setContent(note.getContent());
         note1.setUpdatedAt(new Date());
         noteRepository.save(note1);
+    }
+
+    public List<Note> getNoteByUser(Long userId) {
+        return noteRepository.findByUserId(userId);
     }
 }
