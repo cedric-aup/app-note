@@ -1,5 +1,6 @@
 package com.gestion.note_app.services;
 
+import com.gestion.note_app.models.CreateNoteRequest;
 import com.gestion.note_app.models.Note;
 import com.gestion.note_app.models.User;
 import com.gestion.note_app.repository.NoteRepository;
@@ -22,15 +23,15 @@ public class NoteService {
         this.userRepository=userRepository;
     }
 
-    public void createdNote(Note noteDto){
-        User user = userRepository.findById(noteDto.getUser().getId())
+    public void createdNote(CreateNoteRequest noteDto){
+        User user = userRepository.findById(noteDto.getUserId())
                 .orElseThrow(()-> new RuntimeException("Aucun User trouvé"));
 
         Note note = new Note ();
         note.setTitle(noteDto.getTitle());
         note.setContent(noteDto.getContent());
         note.setCreatedAt(new Date());
-        note.setUser(noteDto.getUser());
+        note.setUser(user);
         noteRepository.save(note);
     }
 

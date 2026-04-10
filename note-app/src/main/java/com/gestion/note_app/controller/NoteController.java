@@ -1,5 +1,6 @@
 package com.gestion.note_app.controller;
 
+import com.gestion.note_app.models.CreateNoteRequest;
 import com.gestion.note_app.models.Note;
 import com.gestion.note_app.models.User;
 import com.gestion.note_app.services.NoteService;
@@ -25,7 +26,7 @@ public class NoteController {
     }
 
     @PostMapping("createNote")
-    public void createNote(@RequestBody Note note){
+    public void createNote(@RequestBody CreateNoteRequest note){
         noteService.createdNote(note);
     }
 

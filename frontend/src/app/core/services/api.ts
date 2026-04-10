@@ -23,4 +23,8 @@ export class Api {
     return this.http.get<Note[]>(`${this.baseUrl}/note/listNoteByUser/${userId}`);
   }
 
+  createNote(note: any){
+    return this.http.post(`${this.baseUrl}/note/createNote`, note)
+  }
+
 }

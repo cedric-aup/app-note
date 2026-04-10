@@ -3,17 +3,21 @@ import { CommonModule } from '@angular/common';
 import { Api } from '../core/services/api';
 import { Note } from './Note';
 import { BehaviorSubject } from 'rxjs';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './notes.html',
   styleUrls: ['./notes.scss'],
 })
 export class Notes implements OnInit {
 
-  // 🔥 State réactif
   notes$ = new BehaviorSubject<Note[]>([]);
 
   constructor(private api: Api) {}
@@ -38,7 +42,6 @@ export class Notes implements OnInit {
       next: (data: Note[]) => {
         console.log('NOTES RECEIVED:', data);
 
-        // 🔥 update reactive state
         this.notes$.next([...data]);
       },
       error: (err) => {

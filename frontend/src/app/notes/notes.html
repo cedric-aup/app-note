@@ -1,15 +1,18 @@
 <div class="layout">
 
   <div class="sidebar">
-    <button>Ajouter</button>
-    <button>Voir notes</button>
+    <a routerLink="/ajoutNote" routerLinkActive="active">Ajouter</a>
+    <a routerLink="/register" routerLinkActive="active">Voir notes</a>
   </div>
+
 
   <div class="content">
 
     <div *ngFor="let note of (notes$ | async)" class="note-card">
       <h2>{{ note.title }}</h2>
       <p>{{ note.content }}</p>
+      <p>Date de création  {{ note.createdAt}}</p>
+      <p>Date de modification {{ note.updatedAt}}</p>
     </div>
 
   </div>
